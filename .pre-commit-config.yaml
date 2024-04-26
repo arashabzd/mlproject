@@ -1,0 +1,32 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: pytest-check
+        name: pytest-check
+        entry: pytest
+        language: system
+        pass_filenames: false
+        always_run: true
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.1
+    hooks:
+    -   id: ruff
+        types_or: [python, pyi, jupyter]
+        args: [--fix]
+    -   id: ruff-format
+        types_or: [python, pyi, jupyter]
+-   repo: https://github.com/python-poetry/poetry
+    rev: 1.8.0 
+    hooks:
+    -   id: poetry-check
+    -   id: poetry-lock
+    -   id: poetry-export
+    -   id: poetry-export
+        args: [--only, dev, -f, requirements.txt, -o, requirements-dev.txt]
+    -   id: poetry-install
+-   repo: https://github.com/arashabzd/pre-commit-nbconvert
+    rev: "0.0.2"
+    hooks:
+    -   id: convert-notebooks
+        args: [--format=markdown, --output-dir=reports]
+    -   id: clear-notebook-outputs

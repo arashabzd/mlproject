@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "mlproject"
+version = "0.0.0"
+description = "A template for machine learning projects"
+authors = ["Your Name <your@email.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "*"
+pre-commit = "*"
+pytest = "*"
+ruff = "*"
+nbconvert = "*"
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+extend-select = ["E501"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
