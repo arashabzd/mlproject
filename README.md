@@ -44,4 +44,6 @@ Main differences:
 ```
 ## TODO
 
-- [ ] Add DVC for 
+- [ ] DVC
+- [ ] dotenv
+- [ ] FastAPI
