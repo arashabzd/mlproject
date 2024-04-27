@@ -13,8 +13,6 @@ python = "^3.11"
 ipykernel = "*"
 pre-commit = "*"
 pytest = "*"
-ruff = "*"
-nbconvert = "*"
 
 [tool.ruff]
 line-length = 79

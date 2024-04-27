@@ -8,7 +8,7 @@ repos:
         pass_filenames: false
         always_run: true
 -   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.1
+    rev: v0.4.2
     hooks:
     -   id: ruff
         types_or: [python, pyi, jupyter]
@@ -25,7 +25,7 @@ repos:
         args: [--only, dev, -f, requirements.txt, -o, requirements-dev.txt]
     -   id: poetry-install
 -   repo: https://github.com/arashabzd/pre-commit-nbconvert
-    rev: "0.0.2"
+    rev: "0.0.3"
     hooks:
     -   id: convert-notebooks
         args: [--format=markdown, --output-dir=reports]
