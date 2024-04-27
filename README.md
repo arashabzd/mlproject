@@ -14,7 +14,7 @@ Main differences:
 1. Install [conda](https://docs.anaconda.com/free/miniconda/miniconda-install/) and [poetry](https://python-poetry.org/docs/) on your system (do not install poetry inside your virtual env)
 2. Fork this repository
 3. Create your new github repos with this template and clone
-4. Run `make ENV=[environment name]` to initialize environment, poetry and pre-commit hooks
+4. Run `make name=[environment name] python=3.11` to initialize environment, poetry and pre-commit hooks
 5. Run `conda activate [environment name]` to activate environment
 
 ## Project Structure

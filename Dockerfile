@@ -8,4 +8,4 @@ USER appuser
 COPY . .
 RUN python -m pip install --no-cache-dir -r requirements.txt
 
-CMD ["python", "mlproject"]
+CMD ["python"]
