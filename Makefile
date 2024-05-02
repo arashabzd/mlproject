@@ -1,11 +1,15 @@
 .ONESHELL:
 
-all: create-conda-env \
+init: create-conda-env \
 	poetry-init \
 	create-package \
 	poetry-install \
 	poetry-export \
 	pre-commit-install
+
+install: create-conda-env \
+	poetry-install \
+	pre-commit-install	
 
 create-conda-env:
 	conda create -y -q --name $(name) python=$(python) 
