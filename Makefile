@@ -2,26 +2,37 @@
 
 all: create-conda-env \
 	poetry-init \
-	make-package \
+	create-package \
 	poetry-install \
+	poetry-export \
 	pre-commit-install
 
 create-conda-env:
 	conda create -y -q --name $(name) python=$(python) 
 
 poetry-init:
-	conda run -n $(name) poetry init -n -q \
+	conda run -n $(name) \
+	poetry init -n -q \
 	--name $(name) \
 	--python ^$(python) \
 	--dev-dependency ipykernel \
 	--dev-dependency pre-commit \
 	--dev-dependency pytest
 
-make-package:
+create-package:
 	mkdir $(name) && touch $(name)/__init__.py
 
 poetry-install:
-	conda run -n $(name) poetry install	-n -q
+	conda run -n $(name) \
+	poetry install	-n -q
+
+poetry-export:
+	poetry self add poetry-plugin-export
+	conda run -n $(name) \
+	poetry export -f requirements.txt -o requirements.txt
+	conda run -n $(name) \
+	poetry export --with main --with dev -f requirements.txt -o requirements-dev.txt
 
 pre-commit-install:
-	conda run -n $(name) pre-commit install
+	conda run -n $(name) \
+	pre-commit install
