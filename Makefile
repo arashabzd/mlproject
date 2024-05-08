@@ -1,5 +1,7 @@
 .ONESHELL:
 
+pkg_name := $(subst -,_,$(name))
+
 init: create-conda-env \
 	poetry-init \
 	create-package \
@@ -24,7 +26,7 @@ poetry-init:
 	--dev-dependency pytest
 
 create-package:
-	mkdir $(name) && touch $(name)/__init__.py
+	mkdir $(pkg_name) && touch $(pkg_name)/__init__.py
 
 poetry-install:
 	conda run -n $(name) \
